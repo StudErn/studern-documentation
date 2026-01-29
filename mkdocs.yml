@@ -3,6 +3,7 @@ site_url: https://ajpalok.github.io/studern-documentation/
 theme:
   name: mkdocs
   custom_dir: custom_theme
+  use_directory_urls: false
 markdown_extensions:
   - fenced_code
   - codehilite
