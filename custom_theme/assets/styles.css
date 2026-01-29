@@ -443,23 +443,15 @@ body::after {
   }
 
   .brand-text {
-    min-width: 0;
-    flex: 1;
-  }
-
-  .brand-title {
-    font-size: 1.1rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .brand-subtitle {
     display: none;
   }
 
-  .topbar-actions {
-    flex-shrink: 0;
+  .brand {
+    justify-content: center;
+  }
+
+  .mode-text {
+    display: none;
   }
 
   .layout {
