@@ -1,0 +1,18 @@
+site_name: StudErn Documentation
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Overview: getting-started/overview.md
+    - Local Development: getting-started/local-development.md
+  - Architecture:
+    - Overview: architecture/overview.md
+  - Backend:
+    - Overview: backend/overview.md
+    - Authentication: backend/auth/jwt-auth.md
+    - Hiring & Payments: backend/hiring.md
+    - Queues: backend/queues.md
+  - Frontend:
+    - Overview: frontend/overview.md
+    - Routing: frontend/routing.md
+    - State Management: frontend/state-management.md
+    - API Integration: frontend/api-integration.md
