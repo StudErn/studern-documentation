@@ -12,8 +12,19 @@ Use this page to set up the backend and frontend on a local machine.
    - SQLite is supported out-of-the-box.
 4. Run migrations:
    - php artisan migrate
+5. (Optional) Seed data:
+   - php artisan db:seed
 5. Start the API server:
    - php artisan serve
+
+## Queue Setup (Local)
+
+- Set QUEUE_CONNECTION=database in .env
+- Run queue migrations if needed:
+  - php artisan queue:table
+  - php artisan migrate
+- Start a worker:
+  - php artisan queue:work
 
 ## Frontend Setup
 

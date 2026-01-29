@@ -18,3 +18,8 @@ StudErn uses JWT for API authentication. The client sends a token with each prot
 
 - 401 Unauthorized when token is missing or expired.
 - 403 Forbidden when user lacks a required privilege.
+
+## Related Docs
+
+- Overview: [auth/overview.md](overview.md)
+- Endpoints: [auth/endpoints.md](endpoints.md)

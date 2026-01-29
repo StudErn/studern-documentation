@@ -2,6 +2,10 @@ site_name: StudErn Documentation
 theme:
   name: mkdocs
   custom_dir: custom_theme
+markdown_extensions:
+  - fenced_code
+  - codehilite
+  - tables
 nav:
   - Home: index.md
   - Getting Started:
@@ -11,11 +15,23 @@ nav:
     - Overview: architecture/overview.md
   - Backend:
     - Overview: backend/overview.md
-    - Authentication: backend/auth/jwt-auth.md
-    - Hiring & Payments: backend/hiring.md
+    - Authentication:
+      - Overview: backend/auth/overview.md
+      - Endpoints: backend/auth/endpoints.md
+      - JWT Notes: backend/auth/jwt-auth.md
+    - Company APIs: backend/company.md
+    - Hiring APIs: backend/hiring.md
+    - Admin APIs: backend/admin.md
+    - Payments: backend/payment.md
+    - Response Codes: backend/response-codes.md
+    - Data Model: backend/database.md
     - Queues: backend/queues.md
   - Frontend:
     - Overview: frontend/overview.md
     - Routing: frontend/routing.md
     - State Management: frontend/state-management.md
     - API Integration: frontend/api-integration.md
+    - Auth Flow: frontend/auth-flow.md
+    - Pages: frontend/pages.md
+    - Components: frontend/components.md
+    - UI Guidelines: frontend/ui-guidelines.md

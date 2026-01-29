@@ -16,6 +16,19 @@ StudErn uses a classic client-server architecture with a RESTful API.
 3. The backend validates the token, authorizes the user, and returns data.
 4. Some actions (such as job posting payments) trigger payment flows and queue jobs.
 
+## Layered View
+
+- Presentation: React components, routes, and contexts
+- API Layer: Laravel controllers and request validation
+- Domain Layer: Services for hiring and payments
+- Persistence: Eloquent models and database tables
+- Async: Queue workers for background processing
+
+## Integrations
+
+- Payment gateway (bKash) for paid postings
+- JWT device validation for session security
+
 ## Key Domain Areas
 
 - Companies and company memberships

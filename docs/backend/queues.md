@@ -15,4 +15,18 @@ StudErn uses Laravel queues for asynchronous tasks.
 ## Common Tasks
 
 - Start a worker: php artisan queue:work
+- Listen mode (dev only): php artisan queue:listen
 - Inspect failed jobs: php artisan queue:failed
+- Retry failed jobs: php artisan queue:retry all
+
+## Tables Used
+
+- jobs
+- failed_jobs
+- job_batches
+
+## Operational Notes
+
+- Use queue:work for production-style processing.
+- Use queue:listen for quick local feedback.
+- Tune retry behavior with --tries and --timeout flags.
