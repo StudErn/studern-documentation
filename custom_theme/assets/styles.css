@@ -442,6 +442,26 @@ body::after {
     gap: 0.8rem;
   }
 
+  .brand-text {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .brand-title {
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .topbar-actions {
+    flex-shrink: 0;
+  }
+
   .layout {
     padding: 1rem;
   }
