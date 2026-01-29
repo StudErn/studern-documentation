@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin APIs - StudErn Documentation</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    
+  </head>
+  <body>
+    
+
+    <div class="app">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <span class="brand-title">StudErn Documentation</span>
+            <span class="brand-subtitle">Developer Documentation</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="mode-toggle" id="modeToggle" aria-label="Toggle color mode">
+            <span class="mode-icon" aria-hidden="true">☀️</span>
+            <span class="mode-text">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="nav-title">Contents</div>
+            <nav class="nav">
+              
+                
+        <a class="nav-link" href="../..">Home</a>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Getting Started</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../getting-started/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../getting-started/local-development/">Local Development</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Architecture</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../architecture/overview/">Overview</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Backend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../overview/">Overview</a>
+      
+            
+              
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Authentication</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../auth/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../auth/endpoints/">Endpoints</a>
+      
+            
+              
+        <a class="nav-link" href="../auth/jwt-auth/">JWT Notes</a>
+      
+            
+          </div>
+        </div>
+      
+            
+              
+        <a class="nav-link" href="../company/">Company APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../hiring/">Hiring APIs</a>
+      
+            
+              
+        <a class="nav-link active" href="./">Admin APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../payment/">Payments</a>
+      
+            
+              
+        <a class="nav-link" href="../response-codes/">Response Codes</a>
+      
+            
+              
+        <a class="nav-link" href="../database/">Data Model</a>
+      
+            
+              
+        <a class="nav-link" href="../queues/">Queues</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Frontend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../frontend/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/routing/">Routing</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/state-management/">State Management</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/api-integration/">API Integration</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/auth-flow/">Auth Flow</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/pages/">Pages</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/components/">Components</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/ui-guidelines/">UI Guidelines</a>
+      
+            
+          </div>
+        </div>
+      
+              
+            </nav>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="doc">
+            
+              <h1>Admin APIs</h1>
+            
+            <h1 id="admin-apis">Admin APIs</h1>
+<p>Admin endpoints provide system-level privilege management.</p>
+<h2 id="key-endpoints">Key Endpoints</h2>
+<ul>
+<li>GET /api/admin/privileges</li>
+<li>List all system privileges</li>
+<li>POST /api/admin/privileges</li>
+<li>Create a new privilege</li>
+<li>POST /api/admin/assign-privilege</li>
+<li>Assign a privilege to a user</li>
+<li>POST /api/admin/remove-privilege</li>
+<li>Remove a privilege from a user</li>
+<li>GET /api/admin/users/{userId}/privileges</li>
+<li>Fetch a user's privileges</li>
+</ul>
+<h2 id="access-control">Access Control</h2>
+<ul>
+<li>Requires manage_privileges_of_users privilege.</li>
+<li>Designed for system administrators only.</li>
+</ul>
+<p>For payloads and responses, see studern-backend/.wiki/Admin.</p>
+          </article>
+        </main>
+
+        
+          <aside class="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <ul>
+                
+                  <li>
+                    <a href="#admin-apis">Admin APIs</a>
+                    
+                      <ul>
+                        
+                          <li><a href="#key-endpoints">Key Endpoints</a></li>
+                        
+                          <li><a href="#access-control">Access Control</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+              </ul>
+            </div>
+          </aside>
+        
+      </div>
+
+      <footer class="footer">
+        <span>StudErn Documentation © 2026</span>
+      </footer>
+    </div>
+
+    <script src="../../assets/theme.js"></script>
+    
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>

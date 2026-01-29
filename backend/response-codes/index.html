@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Response Codes - StudErn Documentation</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    
+  </head>
+  <body>
+    
+
+    <div class="app">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <span class="brand-title">StudErn Documentation</span>
+            <span class="brand-subtitle">Developer Documentation</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="mode-toggle" id="modeToggle" aria-label="Toggle color mode">
+            <span class="mode-icon" aria-hidden="true">☀️</span>
+            <span class="mode-text">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="nav-title">Contents</div>
+            <nav class="nav">
+              
+                
+        <a class="nav-link" href="../..">Home</a>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Getting Started</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../getting-started/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../getting-started/local-development/">Local Development</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Architecture</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../architecture/overview/">Overview</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Backend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../overview/">Overview</a>
+      
+            
+              
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Authentication</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../auth/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../auth/endpoints/">Endpoints</a>
+      
+            
+              
+        <a class="nav-link" href="../auth/jwt-auth/">JWT Notes</a>
+      
+            
+          </div>
+        </div>
+      
+            
+              
+        <a class="nav-link" href="../company/">Company APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../hiring/">Hiring APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../admin/">Admin APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../payment/">Payments</a>
+      
+            
+              
+        <a class="nav-link active" href="./">Response Codes</a>
+      
+            
+              
+        <a class="nav-link" href="../database/">Data Model</a>
+      
+            
+              
+        <a class="nav-link" href="../queues/">Queues</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Frontend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../frontend/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/routing/">Routing</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/state-management/">State Management</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/api-integration/">API Integration</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/auth-flow/">Auth Flow</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/pages/">Pages</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/components/">Components</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/ui-guidelines/">UI Guidelines</a>
+      
+            
+          </div>
+        </div>
+      
+              
+            </nav>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="doc">
+            
+              <h1>Response Codes</h1>
+            
+            <h1 id="response-codes">Response Codes</h1>
+<p>StudErn APIs return a consistent response envelope.</p>
+<h2 id="standard-format">Standard Format</h2>
+<ul>
+<li>status: success or error</li>
+<li>message: human-readable message</li>
+<li>data or messages: payload or error details</li>
+</ul>
+<h2 id="common-http-codes">Common HTTP Codes</h2>
+<ul>
+<li>200 OK</li>
+<li>201 Created</li>
+<li>400 Bad Request</li>
+<li>401 Unauthorized</li>
+<li>403 Forbidden</li>
+<li>404 Not Found</li>
+<li>422 Unprocessable Entity</li>
+<li>500 Internal Server Error</li>
+</ul>
+<h2 id="error-payloads">Error Payloads</h2>
+<p>Validation errors typically return messages with field-specific arrays.</p>
+<p>Example:</p>
+<ul>
+<li>messages.identifier: ["The identifier field is required."]</li>
+<li>messages.password: ["The password must be at least 8 characters."]</li>
+</ul>
+<p>Use these codes to drive UI feedback and retry logic on the frontend.</p>
+          </article>
+        </main>
+
+        
+          <aside class="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <ul>
+                
+                  <li>
+                    <a href="#response-codes">Response Codes</a>
+                    
+                      <ul>
+                        
+                          <li><a href="#standard-format">Standard Format</a></li>
+                        
+                          <li><a href="#common-http-codes">Common HTTP Codes</a></li>
+                        
+                          <li><a href="#error-payloads">Error Payloads</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+              </ul>
+            </div>
+          </aside>
+        
+      </div>
+
+      <footer class="footer">
+        <span>StudErn Documentation © 2026</span>
+      </footer>
+    </div>
+
+    <script src="../../assets/theme.js"></script>
+    
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>

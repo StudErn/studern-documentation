@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Components - StudErn Documentation</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    
+  </head>
+  <body>
+    
+
+    <div class="app">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <span class="brand-title">StudErn Documentation</span>
+            <span class="brand-subtitle">Developer Documentation</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="mode-toggle" id="modeToggle" aria-label="Toggle color mode">
+            <span class="mode-icon" aria-hidden="true">☀️</span>
+            <span class="mode-text">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="nav-title">Contents</div>
+            <nav class="nav">
+              
+                
+        <a class="nav-link" href="../..">Home</a>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Getting Started</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../getting-started/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../getting-started/local-development/">Local Development</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Architecture</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../architecture/overview/">Overview</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Backend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../backend/overview/">Overview</a>
+      
+            
+              
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Authentication</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../backend/auth/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/auth/endpoints/">Endpoints</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/auth/jwt-auth/">JWT Notes</a>
+      
+            
+          </div>
+        </div>
+      
+            
+              
+        <a class="nav-link" href="../../backend/company/">Company APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/hiring/">Hiring APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/admin/">Admin APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/payment/">Payments</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/response-codes/">Response Codes</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/database/">Data Model</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/queues/">Queues</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Frontend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../routing/">Routing</a>
+      
+            
+              
+        <a class="nav-link" href="../state-management/">State Management</a>
+      
+            
+              
+        <a class="nav-link" href="../api-integration/">API Integration</a>
+      
+            
+              
+        <a class="nav-link" href="../auth-flow/">Auth Flow</a>
+      
+            
+              
+        <a class="nav-link" href="../pages/">Pages</a>
+      
+            
+              
+        <a class="nav-link active" href="./">Components</a>
+      
+            
+              
+        <a class="nav-link" href="../ui-guidelines/">UI Guidelines</a>
+      
+            
+          </div>
+        </div>
+      
+              
+            </nav>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="doc">
+            
+              <h1>Components</h1>
+            
+            <h1 id="frontend-components">Frontend Components</h1>
+<p>Key reusable components in the React UI.</p>
+<h2 id="layout">Layout</h2>
+<ul>
+<li>AppLayout: authenticated layout with sidebar and header</li>
+<li>DashboardHeader: top bar with view and company switch</li>
+<li>DashboardSidebar: navigation for view roles</li>
+</ul>
+<h2 id="hiring">Hiring</h2>
+<ul>
+<li>HiringList: list view with filters</li>
+<li>CreateHiring: job/internship creation form</li>
+</ul>
+<h2 id="company">Company</h2>
+<ul>
+<li>MemberManagement: users, roles, permissions</li>
+</ul>
+<h2 id="utility">Utility</h2>
+<ul>
+<li>ProtectedRoute: guards access based on auth and role</li>
+<li>ToastProvider: global notifications</li>
+</ul>
+          </article>
+        </main>
+
+        
+          <aside class="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <ul>
+                
+                  <li>
+                    <a href="#frontend-components">Frontend Components</a>
+                    
+                      <ul>
+                        
+                          <li><a href="#layout">Layout</a></li>
+                        
+                          <li><a href="#hiring">Hiring</a></li>
+                        
+                          <li><a href="#company">Company</a></li>
+                        
+                          <li><a href="#utility">Utility</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+              </ul>
+            </div>
+          </aside>
+        
+      </div>
+
+      <footer class="footer">
+        <span>StudErn Documentation © 2026</span>
+      </footer>
+    </div>
+
+    <script src="../../assets/theme.js"></script>
+    
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>

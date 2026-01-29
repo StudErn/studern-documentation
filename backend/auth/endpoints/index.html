@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Endpoints - StudErn Documentation</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../../../assets/styles.css" />
+    
+  </head>
+  <body>
+    
+
+    <div class="app">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <span class="brand-title">StudErn Documentation</span>
+            <span class="brand-subtitle">Developer Documentation</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="mode-toggle" id="modeToggle" aria-label="Toggle color mode">
+            <span class="mode-icon" aria-hidden="true">☀️</span>
+            <span class="mode-text">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="nav-title">Contents</div>
+            <nav class="nav">
+              
+                
+        <a class="nav-link" href="../../..">Home</a>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Getting Started</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../../getting-started/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../../getting-started/local-development/">Local Development</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Architecture</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../../architecture/overview/">Overview</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Backend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../overview/">Overview</a>
+      
+            
+              
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Authentication</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link active" href="./">Endpoints</a>
+      
+            
+              
+        <a class="nav-link" href="../jwt-auth/">JWT Notes</a>
+      
+            
+          </div>
+        </div>
+      
+            
+              
+        <a class="nav-link" href="../../company/">Company APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../hiring/">Hiring APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../admin/">Admin APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../payment/">Payments</a>
+      
+            
+              
+        <a class="nav-link" href="../../response-codes/">Response Codes</a>
+      
+            
+              
+        <a class="nav-link" href="../../database/">Data Model</a>
+      
+            
+              
+        <a class="nav-link" href="../../queues/">Queues</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Frontend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../../frontend/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/routing/">Routing</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/state-management/">State Management</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/api-integration/">API Integration</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/auth-flow/">Auth Flow</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/pages/">Pages</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/components/">Components</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/ui-guidelines/">UI Guidelines</a>
+      
+            
+          </div>
+        </div>
+      
+              
+            </nav>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="doc">
+            
+              <h1>Endpoints</h1>
+            
+            <h1 id="authentication-endpoints">Authentication Endpoints</h1>
+<p>This section summarizes the authentication endpoints documented in the backend wiki.</p>
+<h2 id="login">Login</h2>
+<p>POST /api/login</p>
+<p>Purpose:
+- Authenticate via email or phone and return a JWT.</p>
+<p>Key fields:
+- identifier (email or phone)
+- password
+- devicePayload (recommended)
+    - timezone
+    - screen
+    - platform
+    - ua</p>
+<p>Validation notes:</p>
+<ul>
+<li>identifier must map to a verified contact</li>
+<li>password is validated against stored hash</li>
+</ul>
+<p>Example request:</p>
+<pre class="codehilite"><code class="language-json">{
+    &quot;identifier&quot;: &quot;john.doe@example.com&quot;,
+    &quot;password&quot;: &quot;SecurePass123!&quot;,
+    &quot;devicePayload&quot;: {
+        &quot;timezone&quot;: &quot;Asia/Dhaka&quot;,
+        &quot;screen&quot;: &quot;1920x1080&quot;,
+        &quot;platform&quot;: &quot;Win32&quot;,
+        &quot;ua&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64)&quot;
+    }
+}
+</code></pre>
+
+<p>Example success response:</p>
+<pre class="codehilite"><code class="language-json">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Login successful.&quot;,
+    &quot;data&quot;: {
+        &quot;token&quot;: &quot;&lt;jwt&gt;&quot;,
+        &quot;token_type&quot;: &quot;bearer&quot;,
+        &quot;expires_in&quot;: 3600,
+        &quot;user&quot;: {
+            &quot;id&quot;: 1,
+            &quot;firstname&quot;: &quot;John&quot;,
+            &quot;lastname&quot;: &quot;Doe&quot;
+        }
+    }
+}
+</code></pre>
+
+<h2 id="token-refresh">Token Refresh</h2>
+<p>POST /api/refresh</p>
+<p>Purpose:
+- Issue a new token from a valid existing token.</p>
+<p>Notes:</p>
+<ul>
+<li>Requires a valid token in Authorization header</li>
+</ul>
+<p>Example curl:</p>
+<pre class="codehilite"><code class="language-bash">curl -X POST http://localhost:8000/api/refresh \
+    -H &quot;Authorization: Bearer &lt;jwt&gt;&quot;
+</code></pre>
+
+<h2 id="logout">Logout</h2>
+<p>POST /api/logout</p>
+<p>Purpose:
+- Invalidate the current token.</p>
+<p>Notes:</p>
+<ul>
+<li>Token is blacklisted server-side</li>
+</ul>
+<p>Example curl:</p>
+<pre class="codehilite"><code class="language-bash">curl -X POST http://localhost:8000/api/logout \
+    -H &quot;Authorization: Bearer &lt;jwt&gt;&quot;
+</code></pre>
+
+<h2 id="registration">Registration</h2>
+<p>POST /api/register</p>
+<p>Purpose:
+- Create a new user account and begin verification.</p>
+<p>Common fields:</p>
+<ul>
+<li>firstname, lastname</li>
+<li>contact (email or phone)</li>
+<li>password</li>
+</ul>
+<h2 id="contact-verification">Contact Verification</h2>
+<p>POST /api/contact-verification
+POST /api/contact-verification/resend</p>
+<p>Purpose:
+- Verify email or phone for account activation.</p>
+<p>Notes:</p>
+<ul>
+<li>Verification token is required</li>
+</ul>
+<h2 id="password-reset">Password Reset</h2>
+<p>POST /api/reset-password/request
+POST /api/reset-password/verify
+POST /api/reset-password/reset</p>
+<p>Purpose:
+- Request, verify, and complete password resets.</p>
+<p>Common fields:</p>
+<ul>
+<li>contact</li>
+<li>reset token</li>
+<li>new password</li>
+</ul>
+<h2 id="common-responses">Common Responses</h2>
+<ul>
+<li>200 OK for success</li>
+<li>401 Unauthorized for invalid credentials or tokens</li>
+<li>422 Unprocessable Entity for validation failures</li>
+</ul>
+<p>For detailed payloads and examples, refer to the backend wiki files under studern-backend/.wiki/auth.</p>
+          </article>
+        </main>
+
+        
+          <aside class="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <ul>
+                
+                  <li>
+                    <a href="#authentication-endpoints">Authentication Endpoints</a>
+                    
+                      <ul>
+                        
+                          <li><a href="#login">Login</a></li>
+                        
+                          <li><a href="#token-refresh">Token Refresh</a></li>
+                        
+                          <li><a href="#logout">Logout</a></li>
+                        
+                          <li><a href="#registration">Registration</a></li>
+                        
+                          <li><a href="#contact-verification">Contact Verification</a></li>
+                        
+                          <li><a href="#password-reset">Password Reset</a></li>
+                        
+                          <li><a href="#common-responses">Common Responses</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+              </ul>
+            </div>
+          </aside>
+        
+      </div>
+
+      <footer class="footer">
+        <span>StudErn Documentation © 2026</span>
+      </footer>
+    </div>
+
+    <script src="../../../assets/theme.js"></script>
+    
+      
+        <script src="../../../search/main.js"></script>
+      
+    
+  </body>
+</html>

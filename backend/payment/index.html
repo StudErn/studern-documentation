@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Payments - StudErn Documentation</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    
+  </head>
+  <body>
+    
+
+    <div class="app">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <span class="brand-title">StudErn Documentation</span>
+            <span class="brand-subtitle">Developer Documentation</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="mode-toggle" id="modeToggle" aria-label="Toggle color mode">
+            <span class="mode-icon" aria-hidden="true">☀️</span>
+            <span class="mode-text">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="nav-title">Contents</div>
+            <nav class="nav">
+              
+                
+        <a class="nav-link" href="../..">Home</a>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Getting Started</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../getting-started/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../getting-started/local-development/">Local Development</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Architecture</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../architecture/overview/">Overview</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Backend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../overview/">Overview</a>
+      
+            
+              
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Authentication</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../auth/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../auth/endpoints/">Endpoints</a>
+      
+            
+              
+        <a class="nav-link" href="../auth/jwt-auth/">JWT Notes</a>
+      
+            
+          </div>
+        </div>
+      
+            
+              
+        <a class="nav-link" href="../company/">Company APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../hiring/">Hiring APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../admin/">Admin APIs</a>
+      
+            
+              
+        <a class="nav-link active" href="./">Payments</a>
+      
+            
+              
+        <a class="nav-link" href="../response-codes/">Response Codes</a>
+      
+            
+              
+        <a class="nav-link" href="../database/">Data Model</a>
+      
+            
+              
+        <a class="nav-link" href="../queues/">Queues</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Frontend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../frontend/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/routing/">Routing</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/state-management/">State Management</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/api-integration/">API Integration</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/auth-flow/">Auth Flow</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/pages/">Pages</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/components/">Components</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/ui-guidelines/">UI Guidelines</a>
+      
+            
+          </div>
+        </div>
+      
+              
+            </nav>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="doc">
+            
+              <h1>Payments</h1>
+            
+            <h1 id="payments">Payments</h1>
+<p>StudErn includes a modular payment system for job posting and other paid modules.</p>
+<h2 id="overview">Overview</h2>
+<ul>
+<li>One free job posting per user</li>
+<li>Paid packages required after the free posting is used</li>
+<li>Payments are tracked in payments and payment_gateways tables</li>
+</ul>
+<h2 id="data-model">Data Model</h2>
+<ul>
+<li>payment_gateways: gateway configuration</li>
+<li>payments: transaction records</li>
+</ul>
+<h2 id="job-posting-payment-flow">Job Posting Payment Flow</h2>
+<ol>
+<li>User starts a job posting</li>
+<li>Backend checks free posting eligibility</li>
+<li>If paid, the system initiates a gateway payment</li>
+<li>Gateway callback completes the payment</li>
+<li>Job becomes active after successful payment</li>
+</ol>
+<h2 id="payment-packages">Payment Packages</h2>
+<ul>
+<li>Basic (BDT 3,850)</li>
+<li>Standard (BDT 4,500)</li>
+<li>Premium (BDT 5,300)</li>
+</ul>
+<h2 id="key-endpoints">Key Endpoints</h2>
+<ul>
+<li>POST /api/payments/initiate</li>
+<li>POST /api/payments/callback</li>
+<li>GET /api/payments/packages?module_type=job_posting</li>
+</ul>
+<h2 id="example-initiate-payment">Example: Initiate Payment</h2>
+<pre class="codehilite"><code class="language-json">{
+    &quot;module_type&quot;: &quot;job_posting&quot;,
+    &quot;module_id&quot;: 123,
+    &quot;package_name&quot;: &quot;Basic&quot;,
+    &quot;callback_url&quot;: &quot;https://studern.com/api/payments/callback&quot;
+}
+</code></pre>
+
+<p>Example response:</p>
+<pre class="codehilite"><code class="language-json">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Payment initiated successfully&quot;,
+    &quot;data&quot;: {
+        &quot;payment&quot;: {
+            &quot;id&quot;: 456,
+            &quot;amount&quot;: 3850,
+            &quot;status&quot;: &quot;pending&quot;
+        },
+        &quot;bkash_url&quot;: &quot;https://checkout.bkash.com/...&quot;
+    }
+}
+</code></pre>
+
+<h2 id="example-callback">Example: Callback</h2>
+<pre class="codehilite"><code class="language-json">{
+    &quot;paymentID&quot;: &quot;BKASH_PAYMENT_ID&quot;,
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;trxID&quot;: &quot;BKASH_TRANSACTION_ID&quot;
+}
+</code></pre>
+
+<h2 id="gateways">Gateways</h2>
+<ul>
+<li>bKash tokenized checkout is supported</li>
+<li>Gateway configuration is stored in payment_gateways</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<p>Typical environment variables:</p>
+<ul>
+<li>BKASH_BASE_URL</li>
+<li>BKASH_APP_KEY</li>
+<li>BKASH_APP_SECRET</li>
+<li>BKASH_USERNAME</li>
+<li>BKASH_PASSWORD</li>
+</ul>
+<p>See studern-backend/.wiki/Payment for detailed reference, configuration, and examples.</p>
+          </article>
+        </main>
+
+        
+          <aside class="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <ul>
+                
+                  <li>
+                    <a href="#payments">Payments</a>
+                    
+                      <ul>
+                        
+                          <li><a href="#overview">Overview</a></li>
+                        
+                          <li><a href="#data-model">Data Model</a></li>
+                        
+                          <li><a href="#job-posting-payment-flow">Job Posting Payment Flow</a></li>
+                        
+                          <li><a href="#payment-packages">Payment Packages</a></li>
+                        
+                          <li><a href="#key-endpoints">Key Endpoints</a></li>
+                        
+                          <li><a href="#example-initiate-payment">Example: Initiate Payment</a></li>
+                        
+                          <li><a href="#example-callback">Example: Callback</a></li>
+                        
+                          <li><a href="#gateways">Gateways</a></li>
+                        
+                          <li><a href="#configuration">Configuration</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+              </ul>
+            </div>
+          </aside>
+        
+      </div>
+
+      <footer class="footer">
+        <span>StudErn Documentation © 2026</span>
+      </footer>
+    </div>
+
+    <script src="../../assets/theme.js"></script>
+    
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>

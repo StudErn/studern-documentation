@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Data Model - StudErn Documentation</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    
+  </head>
+  <body>
+    
+
+    <div class="app">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <span class="brand-title">StudErn Documentation</span>
+            <span class="brand-subtitle">Developer Documentation</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="mode-toggle" id="modeToggle" aria-label="Toggle color mode">
+            <span class="mode-icon" aria-hidden="true">☀️</span>
+            <span class="mode-text">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="nav-title">Contents</div>
+            <nav class="nav">
+              
+                
+        <a class="nav-link" href="../..">Home</a>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Getting Started</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../getting-started/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../getting-started/local-development/">Local Development</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Architecture</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../architecture/overview/">Overview</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Backend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../overview/">Overview</a>
+      
+            
+              
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Authentication</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../auth/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../auth/endpoints/">Endpoints</a>
+      
+            
+              
+        <a class="nav-link" href="../auth/jwt-auth/">JWT Notes</a>
+      
+            
+          </div>
+        </div>
+      
+            
+              
+        <a class="nav-link" href="../company/">Company APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../hiring/">Hiring APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../admin/">Admin APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../payment/">Payments</a>
+      
+            
+              
+        <a class="nav-link" href="../response-codes/">Response Codes</a>
+      
+            
+              
+        <a class="nav-link active" href="./">Data Model</a>
+      
+            
+              
+        <a class="nav-link" href="../queues/">Queues</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Frontend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../frontend/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/routing/">Routing</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/state-management/">State Management</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/api-integration/">API Integration</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/auth-flow/">Auth Flow</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/pages/">Pages</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/components/">Components</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/ui-guidelines/">UI Guidelines</a>
+      
+            
+          </div>
+        </div>
+      
+              
+            </nav>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="doc">
+            
+              <h1>Data Model</h1>
+            
+            <h1 id="data-model-overview">Data Model Overview</h1>
+<p>Key tables used by the StudErn backend.</p>
+<h2 id="authentication-users">Authentication &amp; Users</h2>
+<ul>
+<li>users</li>
+<li>user_contacts</li>
+<li>user_contact_verification_tokens</li>
+<li>user_passwords</li>
+<li>authentications</li>
+</ul>
+<h2 id="privileges">Privileges</h2>
+<ul>
+<li>privileges</li>
+<li>user_privileges</li>
+<li>company_privileges</li>
+<li>company_user_privileges</li>
+</ul>
+<h2 id="companies">Companies</h2>
+<ul>
+<li>companies</li>
+<li>company_users</li>
+<li>company_links</li>
+</ul>
+<h2 id="hiring">Hiring</h2>
+<ul>
+<li>hiring_details</li>
+<li>job_details</li>
+<li>internship_details</li>
+<li>work_from_details</li>
+</ul>
+<h2 id="payments">Payments</h2>
+<ul>
+<li>payment_gateways</li>
+<li>payments</li>
+</ul>
+<h2 id="applications">Applications</h2>
+<ul>
+<li>applications</li>
+<li>interviews</li>
+<li>saved_jobs</li>
+</ul>
+<p>This list is derived from the backend database and the backend wiki.</p>
+          </article>
+        </main>
+
+        
+          <aside class="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <ul>
+                
+                  <li>
+                    <a href="#data-model-overview">Data Model Overview</a>
+                    
+                      <ul>
+                        
+                          <li><a href="#authentication-users">Authentication &amp; Users</a></li>
+                        
+                          <li><a href="#privileges">Privileges</a></li>
+                        
+                          <li><a href="#companies">Companies</a></li>
+                        
+                          <li><a href="#hiring">Hiring</a></li>
+                        
+                          <li><a href="#payments">Payments</a></li>
+                        
+                          <li><a href="#applications">Applications</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+              </ul>
+            </div>
+          </aside>
+        
+      </div>
+
+      <footer class="footer">
+        <span>StudErn Documentation © 2026</span>
+      </footer>
+    </div>
+
+    <script src="../../assets/theme.js"></script>
+    
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>

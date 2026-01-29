@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Overview - StudErn Documentation</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    
+  </head>
+  <body>
+    
+
+    <div class="app">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <span class="brand-title">StudErn Documentation</span>
+            <span class="brand-subtitle">Developer Documentation</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="mode-toggle" id="modeToggle" aria-label="Toggle color mode">
+            <span class="mode-icon" aria-hidden="true">☀️</span>
+            <span class="mode-text">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="nav-title">Contents</div>
+            <nav class="nav">
+              
+                
+        <a class="nav-link" href="../..">Home</a>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Getting Started</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../getting-started/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../getting-started/local-development/">Local Development</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Architecture</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../architecture/overview/">Overview</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Backend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link active" href="./">Overview</a>
+      
+            
+              
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Authentication</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../auth/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../auth/endpoints/">Endpoints</a>
+      
+            
+              
+        <a class="nav-link" href="../auth/jwt-auth/">JWT Notes</a>
+      
+            
+          </div>
+        </div>
+      
+            
+              
+        <a class="nav-link" href="../company/">Company APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../hiring/">Hiring APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../admin/">Admin APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../payment/">Payments</a>
+      
+            
+              
+        <a class="nav-link" href="../response-codes/">Response Codes</a>
+      
+            
+              
+        <a class="nav-link" href="../database/">Data Model</a>
+      
+            
+              
+        <a class="nav-link" href="../queues/">Queues</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Frontend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../frontend/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/routing/">Routing</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/state-management/">State Management</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/api-integration/">API Integration</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/auth-flow/">Auth Flow</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/pages/">Pages</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/components/">Components</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/ui-guidelines/">UI Guidelines</a>
+      
+            
+          </div>
+        </div>
+      
+              
+            </nav>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="doc">
+            
+              <h1>Overview</h1>
+            
+            <h1 id="backend-overview">Backend Overview</h1>
+<p>The StudErn backend is a Laravel API that powers authentication, authorization, hiring workflows, and payment processing.</p>
+<h2 id="architecture-snapshot">Architecture Snapshot</h2>
+<ul>
+<li>Framework: Laravel</li>
+<li>Auth: JWT with optional device payload validation</li>
+<li>Data: Eloquent models backed by SQLite/MySQL</li>
+<li>Async: Laravel queues (database driver recommended for local dev)</li>
+</ul>
+<h2 id="core-concepts">Core Concepts</h2>
+<ul>
+<li><strong>Authentication</strong>: JWT tokens are required for protected routes.</li>
+<li><strong>Authorization</strong>: Company membership and privilege checks gate company actions.</li>
+<li><strong>Hiring</strong>: Jobs and internships share a unified hiring_details model with type-specific details.</li>
+<li><strong>Payments</strong>: A free-posting rule with package-based paid upgrades.</li>
+</ul>
+<h2 id="key-modules">Key Modules</h2>
+<ul>
+<li><strong>Auth</strong>: login, registration, verification, password reset</li>
+<li><strong>Companies</strong>: creation, membership, privileges, links</li>
+<li><strong>Hiring</strong>: create, browse, update, delete, and public browse</li>
+<li><strong>Payments</strong>: gateway integration and package logic</li>
+<li><strong>Queue</strong>: background work, retries, and failed jobs</li>
+</ul>
+<h2 id="request-response-conventions">Request &amp; Response Conventions</h2>
+<ul>
+<li>JSON requests with Authorization header for protected routes</li>
+<li>Standard response envelope:<ul>
+<li>status, message, data/messages</li>
+</ul>
+</li>
+<li>Validation errors return messages per field</li>
+</ul>
+<h2 id="api-structure">API Structure</h2>
+<p>Routes live in routes/api.php and are grouped into:</p>
+<ul>
+<li><strong>Public</strong>: welcome, browse listings</li>
+<li><strong>Protected</strong>: company, hiring, payments</li>
+<li><strong>Admin</strong>: privilege management and system operations</li>
+</ul>
+          </article>
+        </main>
+
+        
+          <aside class="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <ul>
+                
+                  <li>
+                    <a href="#backend-overview">Backend Overview</a>
+                    
+                      <ul>
+                        
+                          <li><a href="#architecture-snapshot">Architecture Snapshot</a></li>
+                        
+                          <li><a href="#core-concepts">Core Concepts</a></li>
+                        
+                          <li><a href="#key-modules">Key Modules</a></li>
+                        
+                          <li><a href="#request-response-conventions">Request &amp; Response Conventions</a></li>
+                        
+                          <li><a href="#api-structure">API Structure</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+              </ul>
+            </div>
+          </aside>
+        
+      </div>
+
+      <footer class="footer">
+        <span>StudErn Documentation © 2026</span>
+      </footer>
+    </div>
+
+    <script src="../../assets/theme.js"></script>
+    
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>

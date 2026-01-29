@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Overview - StudErn Documentation</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    
+  </head>
+  <body>
+    
+
+    <div class="app">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <span class="brand-title">StudErn Documentation</span>
+            <span class="brand-subtitle">Developer Documentation</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="mode-toggle" id="modeToggle" aria-label="Toggle color mode">
+            <span class="mode-icon" aria-hidden="true">☀️</span>
+            <span class="mode-text">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="nav-title">Contents</div>
+            <nav class="nav">
+              
+                
+        <a class="nav-link" href="../..">Home</a>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Getting Started</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link active" href="./">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../local-development/">Local Development</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Architecture</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../architecture/overview/">Overview</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Backend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../backend/overview/">Overview</a>
+      
+            
+              
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Authentication</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../backend/auth/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/auth/endpoints/">Endpoints</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/auth/jwt-auth/">JWT Notes</a>
+      
+            
+          </div>
+        </div>
+      
+            
+              
+        <a class="nav-link" href="../../backend/company/">Company APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/hiring/">Hiring APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/admin/">Admin APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/payment/">Payments</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/response-codes/">Response Codes</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/database/">Data Model</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/queues/">Queues</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Frontend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../frontend/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/routing/">Routing</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/state-management/">State Management</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/api-integration/">API Integration</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/auth-flow/">Auth Flow</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/pages/">Pages</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/components/">Components</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/ui-guidelines/">UI Guidelines</a>
+      
+            
+          </div>
+        </div>
+      
+              
+            </nav>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="doc">
+            
+              <h1>Overview</h1>
+            
+            <h1 id="getting-started">Getting Started</h1>
+<p>This guide helps you run the StudErn backend and frontend locally.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>PHP 8.3+</li>
+<li>Composer</li>
+<li>Node.js 18+</li>
+<li>npm</li>
+<li>SQLite or MySQL (the repository currently uses SQLite by default)</li>
+</ul>
+<h2 id="repositories">Repositories</h2>
+<p>StudErn is split into two main applications:</p>
+<ul>
+<li>Backend: Laravel API in studern-backend</li>
+<li>Frontend: React + Vite in studern-frontend</li>
+</ul>
+<h2 id="high-level-steps">High-Level Steps</h2>
+<ol>
+<li>Install dependencies for both projects.</li>
+<li>Configure environment variables for backend and frontend.</li>
+<li>Run migrations and seed data as needed.</li>
+<li>Start the backend API.</li>
+<li>Start the frontend dev server.</li>
+</ol>
+<h2 id="environment-basics">Environment Basics</h2>
+<ul>
+<li>Backend uses .env for database and queue configuration.</li>
+<li>Frontend uses VITE_API_BASE_URL to point to the API.</li>
+<li>For local development, database queue is recommended.</li>
+</ul>
+<p>Continue to <a href="../local-development/">local-development.md</a> for detailed steps.</p>
+          </article>
+        </main>
+
+        
+          <aside class="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <ul>
+                
+                  <li>
+                    <a href="#getting-started">Getting Started</a>
+                    
+                      <ul>
+                        
+                          <li><a href="#prerequisites">Prerequisites</a></li>
+                        
+                          <li><a href="#repositories">Repositories</a></li>
+                        
+                          <li><a href="#high-level-steps">High-Level Steps</a></li>
+                        
+                          <li><a href="#environment-basics">Environment Basics</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+              </ul>
+            </div>
+          </aside>
+        
+      </div>
+
+      <footer class="footer">
+        <span>StudErn Documentation © 2026</span>
+      </footer>
+    </div>
+
+    <script src="../../assets/theme.js"></script>
+    
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>

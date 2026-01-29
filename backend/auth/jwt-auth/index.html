@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JWT Notes - StudErn Documentation</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../../../assets/styles.css" />
+    
+  </head>
+  <body>
+    
+
+    <div class="app">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <span class="brand-title">StudErn Documentation</span>
+            <span class="brand-subtitle">Developer Documentation</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="mode-toggle" id="modeToggle" aria-label="Toggle color mode">
+            <span class="mode-icon" aria-hidden="true">☀️</span>
+            <span class="mode-text">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="nav-title">Contents</div>
+            <nav class="nav">
+              
+                
+        <a class="nav-link" href="../../..">Home</a>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Getting Started</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../../getting-started/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../../getting-started/local-development/">Local Development</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Architecture</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../../architecture/overview/">Overview</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Backend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../overview/">Overview</a>
+      
+            
+              
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Authentication</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../endpoints/">Endpoints</a>
+      
+            
+              
+        <a class="nav-link active" href="./">JWT Notes</a>
+      
+            
+          </div>
+        </div>
+      
+            
+              
+        <a class="nav-link" href="../../company/">Company APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../hiring/">Hiring APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../admin/">Admin APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../payment/">Payments</a>
+      
+            
+              
+        <a class="nav-link" href="../../response-codes/">Response Codes</a>
+      
+            
+              
+        <a class="nav-link" href="../../database/">Data Model</a>
+      
+            
+              
+        <a class="nav-link" href="../../queues/">Queues</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Frontend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../../frontend/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/routing/">Routing</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/state-management/">State Management</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/api-integration/">API Integration</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/auth-flow/">Auth Flow</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/pages/">Pages</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/components/">Components</a>
+      
+            
+              
+        <a class="nav-link" href="../../../frontend/ui-guidelines/">UI Guidelines</a>
+      
+            
+          </div>
+        </div>
+      
+              
+            </nav>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="doc">
+            
+              <h1>JWT Notes</h1>
+            
+            <h1 id="jwt-authentication">JWT Authentication</h1>
+<p>StudErn uses JWT for API authentication. The client sends a token with each protected request.</p>
+<h2 id="flow">Flow</h2>
+<ol>
+<li>User logs in using /api/login.</li>
+<li>The backend returns a JWT token.</li>
+<li>The frontend stores the token and attaches it to requests.</li>
+<li>The backend validates the token and applies device validation.</li>
+</ol>
+<h2 id="device-validation">Device Validation</h2>
+<ul>
+<li>The middleware checks device payload when provided.</li>
+<li>Missing device payload is allowed but results in a skip of device validation.</li>
+</ul>
+<h2 id="common-responses">Common Responses</h2>
+<ul>
+<li>401 Unauthorized when token is missing or expired.</li>
+<li>403 Forbidden when user lacks a required privilege.</li>
+</ul>
+<h2 id="related-docs">Related Docs</h2>
+<ul>
+<li>Overview: <a href="../overview/">auth/overview.md</a></li>
+<li>Endpoints: <a href="../endpoints/">auth/endpoints.md</a></li>
+</ul>
+          </article>
+        </main>
+
+        
+          <aside class="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <ul>
+                
+                  <li>
+                    <a href="#jwt-authentication">JWT Authentication</a>
+                    
+                      <ul>
+                        
+                          <li><a href="#flow">Flow</a></li>
+                        
+                          <li><a href="#device-validation">Device Validation</a></li>
+                        
+                          <li><a href="#common-responses">Common Responses</a></li>
+                        
+                          <li><a href="#related-docs">Related Docs</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+              </ul>
+            </div>
+          </aside>
+        
+      </div>
+
+      <footer class="footer">
+        <span>StudErn Documentation © 2026</span>
+      </footer>
+    </div>
+
+    <script src="../../../assets/theme.js"></script>
+    
+      
+        <script src="../../../search/main.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hiring APIs - StudErn Documentation</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    
+  </head>
+  <body>
+    
+
+    <div class="app">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <span class="brand-title">StudErn Documentation</span>
+            <span class="brand-subtitle">Developer Documentation</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="mode-toggle" id="modeToggle" aria-label="Toggle color mode">
+            <span class="mode-icon" aria-hidden="true">☀️</span>
+            <span class="mode-text">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="nav-title">Contents</div>
+            <nav class="nav">
+              
+                
+        <a class="nav-link" href="../..">Home</a>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Getting Started</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../getting-started/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../getting-started/local-development/">Local Development</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Architecture</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../architecture/overview/">Overview</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Backend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../overview/">Overview</a>
+      
+            
+              
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Authentication</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../auth/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../auth/endpoints/">Endpoints</a>
+      
+            
+              
+        <a class="nav-link" href="../auth/jwt-auth/">JWT Notes</a>
+      
+            
+          </div>
+        </div>
+      
+            
+              
+        <a class="nav-link" href="../company/">Company APIs</a>
+      
+            
+              
+        <a class="nav-link active" href="./">Hiring APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../admin/">Admin APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../payment/">Payments</a>
+      
+            
+              
+        <a class="nav-link" href="../response-codes/">Response Codes</a>
+      
+            
+              
+        <a class="nav-link" href="../database/">Data Model</a>
+      
+            
+              
+        <a class="nav-link" href="../queues/">Queues</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Frontend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../frontend/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/routing/">Routing</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/state-management/">State Management</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/api-integration/">API Integration</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/auth-flow/">Auth Flow</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/pages/">Pages</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/components/">Components</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/ui-guidelines/">UI Guidelines</a>
+      
+            
+          </div>
+        </div>
+      
+              
+            </nav>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="doc">
+            
+              <h1>Hiring APIs</h1>
+            
+            <h1 id="hiring-apis">Hiring APIs</h1>
+<p>Hiring endpoints support both job and internship postings with shared metadata and type-specific detail objects.</p>
+<h2 id="core-endpoints">Core Endpoints</h2>
+<ul>
+<li>POST /api/companies/{companyId}/hiring</li>
+<li>GET /api/companies/{companyId}/hiring</li>
+<li>GET /api/companies/{companyId}/hiring/{hiringDetailId}</li>
+<li>PUT /api/companies/{companyId}/hiring/{hiringDetailId}</li>
+<li>DELETE /api/companies/{companyId}/hiring/{hiringDetailId}</li>
+</ul>
+<p>Public browse endpoints:</p>
+<ul>
+<li>GET /api/hiring/browse</li>
+<li>GET /api/hirings/{id}</li>
+</ul>
+<h2 id="payload-structure-create">Payload Structure (Create)</h2>
+<p>Top-level fields:</p>
+<ul>
+<li>job_title</li>
+<li>hiring_type (job | internship)</li>
+<li>work_from (remote | onsite | hybrid)</li>
+<li>employment_type (full-time | part-time | contract | temporary | freelance)</li>
+<li>num_of_openings</li>
+<li>description</li>
+<li>closing_at</li>
+</ul>
+<p>Server-managed:</p>
+<ul>
+<li>posted_at is set by the backend at creation time</li>
+</ul>
+<p>Job details (when hiring_type is job):</p>
+<ul>
+<li>payment_type</li>
+<li>min_salary / max_salary</li>
+<li>currency</li>
+<li>perks[]</li>
+<li>pay_per</li>
+<li>timeline</li>
+<li>experience_year</li>
+</ul>
+<p>Internship details (when hiring_type is internship):</p>
+<ul>
+<li>min_stipend / max_stipend</li>
+<li>currency</li>
+<li>pay_per</li>
+<li>duration_weeks / duration_months</li>
+<li>perks[]</li>
+<li>when_to_start</li>
+<li>start_date_from / start_date_to</li>
+</ul>
+<p>Work from details:</p>
+<ul>
+<li>work_from_type</li>
+<li>timezone (remote)</li>
+<li>work_start_time / work_end_time (remote)</li>
+<li>days_in_office_per_week (hybrid)</li>
+<li>only_from_office_location</li>
+</ul>
+<h2 id="permissions">Permissions</h2>
+<ul>
+<li>User must be a company member with can_post_jobs to create</li>
+<li>Update/delete requires can_manage_jobs or admin</li>
+</ul>
+<h2 id="payment-gating">Payment Gating</h2>
+<ul>
+<li>First posting is free</li>
+<li>Subsequent postings require a payment package</li>
+</ul>
+<p>Supported packages:</p>
+<ul>
+<li>Basic</li>
+<li>Standard</li>
+<li>Premium</li>
+</ul>
+<p>Paid posting request example:</p>
+<pre class="codehilite"><code class="language-json">{
+    &quot;job_title&quot;: &quot;Frontend Developer&quot;,
+    &quot;hiring_type&quot;: &quot;job&quot;,
+    &quot;work_from&quot;: &quot;remote&quot;,
+    &quot;employment_type&quot;: &quot;full-time&quot;,
+    &quot;num_of_openings&quot;: 1,
+    &quot;description&quot;: &quot;Build UI features&quot;,
+    &quot;closing_at&quot;: &quot;2026-03-20T23:59:59Z&quot;,
+    &quot;payment_package&quot;: &quot;Standard&quot;,
+    &quot;job_details&quot;: {
+        &quot;payment_type&quot;: &quot;fixed_pay&quot;,
+        &quot;min_salary&quot;: 45000,
+        &quot;max_salary&quot;: 65000,
+        &quot;pay_per&quot;: &quot;month&quot;
+    },
+    &quot;work_from_details&quot;: {
+        &quot;work_from_type&quot;: &quot;remote&quot;,
+        &quot;timezone&quot;: &quot;Asia/Dhaka&quot;,
+        &quot;work_start_time&quot;: &quot;09:00&quot;,
+        &quot;work_end_time&quot;: &quot;17:00&quot;
+    }
+}
+</code></pre>
+
+<p>Paid response (payment initiated):</p>
+<pre class="codehilite"><code class="language-json">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Payment initiated&quot;,
+    &quot;data&quot;: {
+        &quot;payment&quot;: {
+            &quot;id&quot;: 45,
+            &quot;amount&quot;: 4500,
+            &quot;status&quot;: &quot;pending&quot;
+        },
+        &quot;bkash_url&quot;: &quot;https://checkout.bkash.com/...&quot;,
+        &quot;requires_payment&quot;: true
+    }
+}
+</code></pre>
+
+<p>For full payload examples and validation rules, see studern-backend/.wiki/Hiring.</p>
+          </article>
+        </main>
+
+        
+          <aside class="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <ul>
+                
+                  <li>
+                    <a href="#hiring-apis">Hiring APIs</a>
+                    
+                      <ul>
+                        
+                          <li><a href="#core-endpoints">Core Endpoints</a></li>
+                        
+                          <li><a href="#payload-structure-create">Payload Structure (Create)</a></li>
+                        
+                          <li><a href="#permissions">Permissions</a></li>
+                        
+                          <li><a href="#payment-gating">Payment Gating</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+              </ul>
+            </div>
+          </aside>
+        
+      </div>
+
+      <footer class="footer">
+        <span>StudErn Documentation © 2026</span>
+      </footer>
+    </div>
+
+    <script src="../../assets/theme.js"></script>
+    
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>

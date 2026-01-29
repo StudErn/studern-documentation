@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Overview - StudErn Documentation</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    
+  </head>
+  <body>
+    
+
+    <div class="app">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <span class="brand-title">StudErn Documentation</span>
+            <span class="brand-subtitle">Developer Documentation</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="mode-toggle" id="modeToggle" aria-label="Toggle color mode">
+            <span class="mode-icon" aria-hidden="true">☀️</span>
+            <span class="mode-text">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="nav-title">Contents</div>
+            <nav class="nav">
+              
+                
+        <a class="nav-link" href="../..">Home</a>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Getting Started</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../getting-started/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../getting-started/local-development/">Local Development</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Architecture</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link active" href="./">Overview</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Backend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../backend/overview/">Overview</a>
+      
+            
+              
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Authentication</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../backend/auth/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/auth/endpoints/">Endpoints</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/auth/jwt-auth/">JWT Notes</a>
+      
+            
+          </div>
+        </div>
+      
+            
+              
+        <a class="nav-link" href="../../backend/company/">Company APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/hiring/">Hiring APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/admin/">Admin APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/payment/">Payments</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/response-codes/">Response Codes</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/database/">Data Model</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/queues/">Queues</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Frontend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../frontend/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/routing/">Routing</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/state-management/">State Management</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/api-integration/">API Integration</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/auth-flow/">Auth Flow</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/pages/">Pages</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/components/">Components</a>
+      
+            
+              
+        <a class="nav-link" href="../../frontend/ui-guidelines/">UI Guidelines</a>
+      
+            
+          </div>
+        </div>
+      
+              
+            </nav>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="doc">
+            
+              <h1>Overview</h1>
+            
+            <h1 id="architecture-overview">Architecture Overview</h1>
+<p>StudErn uses a classic client-server architecture with a RESTful API.</p>
+<h2 id="system-components">System Components</h2>
+<ul>
+<li>Frontend: React + Vite single-page application.</li>
+<li>Backend: Laravel API with JWT-based authentication.</li>
+<li>Database: SQLite (local) or MySQL (production-ready).</li>
+<li>Queue: Laravel queue with database driver for local development.</li>
+</ul>
+<h2 id="data-flow">Data Flow</h2>
+<ol>
+<li>The frontend authenticates the user and stores a JWT token.</li>
+<li>API requests include the token to access protected endpoints.</li>
+<li>The backend validates the token, authorizes the user, and returns data.</li>
+<li>Some actions (such as job posting payments) trigger payment flows and queue jobs.</li>
+</ol>
+<h2 id="layered-view">Layered View</h2>
+<ul>
+<li>Presentation: React components, routes, and contexts</li>
+<li>API Layer: Laravel controllers and request validation</li>
+<li>Domain Layer: Services for hiring and payments</li>
+<li>Persistence: Eloquent models and database tables</li>
+<li>Async: Queue workers for background processing</li>
+</ul>
+<h2 id="integrations">Integrations</h2>
+<ul>
+<li>Payment gateway (bKash) for paid postings</li>
+<li>JWT device validation for session security</li>
+</ul>
+<h2 id="key-domain-areas">Key Domain Areas</h2>
+<ul>
+<li>Companies and company memberships</li>
+<li>Hiring details (jobs and internships)</li>
+<li>Payments and free-posting logic</li>
+<li>Applications and interviews</li>
+</ul>
+<h2 id="technology-decisions">Technology Decisions</h2>
+<ul>
+<li>Laravel provides rapid development and a stable ecosystem.</li>
+<li>React + Vite offers fast iteration and modern UI patterns.</li>
+<li>Database queue driver ensures reliable background work in local environments.</li>
+</ul>
+          </article>
+        </main>
+
+        
+          <aside class="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <ul>
+                
+                  <li>
+                    <a href="#architecture-overview">Architecture Overview</a>
+                    
+                      <ul>
+                        
+                          <li><a href="#system-components">System Components</a></li>
+                        
+                          <li><a href="#data-flow">Data Flow</a></li>
+                        
+                          <li><a href="#layered-view">Layered View</a></li>
+                        
+                          <li><a href="#integrations">Integrations</a></li>
+                        
+                          <li><a href="#key-domain-areas">Key Domain Areas</a></li>
+                        
+                          <li><a href="#technology-decisions">Technology Decisions</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+              </ul>
+            </div>
+          </aside>
+        
+      </div>
+
+      <footer class="footer">
+        <span>StudErn Documentation © 2026</span>
+      </footer>
+    </div>
+
+    <script src="../../assets/theme.js"></script>
+    
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>

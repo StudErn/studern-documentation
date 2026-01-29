@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>API Integration - StudErn Documentation</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    
+  </head>
+  <body>
+    
+
+    <div class="app">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <span class="brand-title">StudErn Documentation</span>
+            <span class="brand-subtitle">Developer Documentation</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="mode-toggle" id="modeToggle" aria-label="Toggle color mode">
+            <span class="mode-icon" aria-hidden="true">☀️</span>
+            <span class="mode-text">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="nav-title">Contents</div>
+            <nav class="nav">
+              
+                
+        <a class="nav-link" href="../..">Home</a>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Getting Started</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../getting-started/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../getting-started/local-development/">Local Development</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Architecture</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../architecture/overview/">Overview</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Backend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../backend/overview/">Overview</a>
+      
+            
+              
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Authentication</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../../backend/auth/overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/auth/endpoints/">Endpoints</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/auth/jwt-auth/">JWT Notes</a>
+      
+            
+          </div>
+        </div>
+      
+            
+              
+        <a class="nav-link" href="../../backend/company/">Company APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/hiring/">Hiring APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/admin/">Admin APIs</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/payment/">Payments</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/response-codes/">Response Codes</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/database/">Data Model</a>
+      
+            
+              
+        <a class="nav-link" href="../../backend/queues/">Queues</a>
+      
+            
+          </div>
+        </div>
+      
+              
+                
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>Frontend</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            
+              
+        <a class="nav-link" href="../overview/">Overview</a>
+      
+            
+              
+        <a class="nav-link" href="../routing/">Routing</a>
+      
+            
+              
+        <a class="nav-link" href="../state-management/">State Management</a>
+      
+            
+              
+        <a class="nav-link active" href="./">API Integration</a>
+      
+            
+              
+        <a class="nav-link" href="../auth-flow/">Auth Flow</a>
+      
+            
+              
+        <a class="nav-link" href="../pages/">Pages</a>
+      
+            
+              
+        <a class="nav-link" href="../components/">Components</a>
+      
+            
+              
+        <a class="nav-link" href="../ui-guidelines/">UI Guidelines</a>
+      
+            
+          </div>
+        </div>
+      
+              
+            </nav>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="doc">
+            
+              <h1>API Integration</h1>
+            
+            <h1 id="api-integration">API Integration</h1>
+<p>The frontend talks to the backend API through axios.</p>
+<h2 id="base-url">Base URL</h2>
+<ul>
+<li>Configured using VITE_API_BASE_URL</li>
+<li>Defaults to http://localhost:8000/api</li>
+</ul>
+<h2 id="error-handling">Error Handling</h2>
+<ul>
+<li>API responses map to success/error objects</li>
+<li>Validation errors surface as field messages</li>
+</ul>
+<h2 id="authentication">Authentication</h2>
+<ul>
+<li>JWT tokens are required for protected endpoints</li>
+<li>Token is attached to each request via axios default headers</li>
+<li>AuthContext clears tokens on 401 responses</li>
+</ul>
+<h2 id="device-payload">Device Payload</h2>
+<ul>
+<li>Login requests include devicePayload for backend device validation</li>
+<li>Payload is generated from browser timezone, screen, platform, and user agent</li>
+</ul>
+<h2 id="error-mapping">Error Mapping</h2>
+<ul>
+<li>Validation errors (422) are converted into field-level messages</li>
+<li>Generic errors map to a fallback message for the UI</li>
+</ul>
+<h2 id="example-authenticated-request">Example: Authenticated Request</h2>
+<pre class="codehilite"><code class="language-js">import axios from 'axios';
+
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+
+export const fetchCompanies = async () =&gt; {
+    const response = await axios.get(`${API_BASE}/companies/my`);
+    return response.data.data;
+};
+</code></pre>
+          </article>
+        </main>
+
+        
+          <aside class="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <ul>
+                
+                  <li>
+                    <a href="#api-integration">API Integration</a>
+                    
+                      <ul>
+                        
+                          <li><a href="#base-url">Base URL</a></li>
+                        
+                          <li><a href="#error-handling">Error Handling</a></li>
+                        
+                          <li><a href="#authentication">Authentication</a></li>
+                        
+                          <li><a href="#device-payload">Device Payload</a></li>
+                        
+                          <li><a href="#error-mapping">Error Mapping</a></li>
+                        
+                          <li><a href="#example-authenticated-request">Example: Authenticated Request</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+              </ul>
+            </div>
+          </aside>
+        
+      </div>
+
+      <footer class="footer">
+        <span>StudErn Documentation © 2026</span>
+      </footer>
+    </div>
+
+    <script src="../../assets/theme.js"></script>
+    
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>
