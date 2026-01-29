@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+    <link rel="stylesheet" href="{{ 'assets/styles.css' | url }}" />
+    {% if config.extra_css %}
+      {% for path in config.extra_css %}
+        <link rel="stylesheet" href="{{ path | url }}" />
+      {% endfor %}
+    {% endif %}
+  </head>
+  <body>
+    {% macro render_nav(item) -%}
+      {% if item.children %}
+        <div class="nav-section">
+          <button class="nav-section-title" data-nav-toggle>
+            <span>{{ item.title }}</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="nav-section-links">
+            {% for child in item.children %}
+              {{ render_nav(child) }}
+            {% endfor %}
+          </div>
+        </div>
+      {% else %}
+        <a class="nav-link{% if item.active %} active{% endif %}" href="{{ item.url | url }}">{{ item.title }}</a>
+      {% endif %}
+    {%- endmacro %}
+
+    <div class="app">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <span class="brand-title">{{ config.site_name }}</span>
+            <span class="brand-subtitle">Developer Documentation</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="mode-toggle" id="modeToggle" aria-label="Toggle color mode">
+            <span class="mode-icon" aria-hidden="true">☀️</span>
+            <span class="mode-text">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-inner">
+            <div class="nav-title">Contents</div>
+            <nav class="nav">
+              {% for nav_item in nav %}
+                {{ render_nav(nav_item) }}
+              {% endfor %}
+            </nav>
+          </div>
+        </aside>
+
+        <main class="content">
+          <article class="doc">
+            {% if page.title %}
+              <h1>{{ page.title }}</h1>
+            {% endif %}
+            {{ page.content }}
+          </article>
+        </main>
+
+        {% if page.toc %}
+          <aside class="toc">
+            <div class="toc-inner">
+              <div class="toc-title">On this page</div>
+              <ul>
+                {% for toc_item in page.toc %}
+                  <li>
+                    <a href="{{ toc_item.url }}">{{ toc_item.title }}</a>
+                    {% if toc_item.children %}
+                      <ul>
+                        {% for child in toc_item.children %}
+                          <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </aside>
+        {% endif %}
+      </div>
+
+      <footer class="footer">
+        <span>{{ config.site_name }} © {{ build_date_utc.strftime('%Y') }}</span>
+      </footer>
+    </div>
+
+    <script src="{{ 'assets/theme.js' | url }}"></script>
+    {% if config.extra_javascript %}
+      {% for path in config.extra_javascript %}
+        <script src="{{ path | url }}"></script>
+      {% endfor %}
+    {% endif %}
+  </body>
+</html>
