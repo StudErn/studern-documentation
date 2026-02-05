@@ -5,35 +5,35 @@ Use this page to set up the backend and frontend on a local machine.
 ## Backend Setup
 
 1. Install dependencies:
-   - Run composer install in studern-backend.
+    - Run composer install in studern-backend.
 2. Copy environment file:
-   - Duplicate .env.example to .env if needed.
+    - Duplicate .env.example to .env if needed.
 3. Configure the database:
-   - SQLite is supported out-of-the-box.
+    - SQLite is supported out-of-the-box.
 4. Run migrations:
-   - php artisan migrate
+    - php artisan migrate
 5. (Optional) Seed data:
-   - php artisan db:seed
-5. Start the API server:
-   - php artisan serve
+    - php artisan db:seed
+6. Start the API server:
+    - php artisan serve
 
 ## Queue Setup (Local)
 
 - Set QUEUE_CONNECTION=database in .env
 - Run queue migrations if needed:
-  - php artisan queue:table
-  - php artisan migrate
+    - php artisan queue:table
+    - php artisan migrate
 - Start a worker:
-  - php artisan queue:work
+    - php artisan queue:work
 
 ## Frontend Setup
 
 1. Install dependencies:
-   - Run npm install in studern-frontend.
+    - Run npm install in studern-frontend.
 2. Configure API base URL:
-   - Set VITE_API_BASE_URL in the frontend .env if needed.
+    - Set VITE_API_BASE_URL in the frontend .env if needed.
 3. Start the dev server:
-   - npm run dev
+    - npm run dev
 
 ## Default URLs
 

@@ -5,15 +5,15 @@ Admin endpoints provide system-level privilege management.
 ## Key Endpoints
 
 - GET /api/admin/privileges
-  - List all system privileges
+    - List all system privileges
 - POST /api/admin/privileges
-  - Create a new privilege
+    - Create a new privilege
 - POST /api/admin/assign-privilege
-  - Assign a privilege to a user
+    - Assign a privilege to a user
 - POST /api/admin/remove-privilege
-  - Remove a privilege from a user
+    - Remove a privilege from a user
 - GET /api/admin/users/{userId}/privileges
-  - Fetch a user's privileges
+    - Fetch a user's privileges
 
 ## Access Control
 

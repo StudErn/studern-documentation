@@ -6,7 +6,7 @@ StudErn uses JWT-based authentication with optional device fingerprint validatio
 
 - Tokens are issued during login and sent with every protected request.
 - The token is passed in the Authorization header:
-  - Authorization: Bearer <token>
+    - Authorization: Bearer <token>
 - Tokens expire and can be refreshed using the refresh endpoint.
 
 ## Device Payload

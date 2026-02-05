@@ -18,17 +18,17 @@ Company endpoints manage organizations, members, and privileges.
 ## Key Endpoints
 
 - POST /api/companies
-  - Create a company
+    - Create a company
 - GET /api/companies/my
-  - List companies for the authenticated user
+    - List companies for the authenticated user
 - POST /api/companies/{companyId}/users
-  - Add a user to a company
+    - Add a user to a company
 - GET /api/companies/{companyId}/users
-  - List users in a company
+    - List users in a company
 - POST /api/companies/{companyId}/users/{userId}/privileges
-  - Grant or revoke company privileges
+    - Grant or revoke company privileges
 - POST /api/companies/{companyId}/links
-  - Add a company link
+    - Add a company link
 
 ## Permissions
 
